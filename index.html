@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Inter_Store</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body ng-app="productsApp" ng-controller="ProductsController as ctrl">
+        <div id="page-wrap">
+        <header>
+            <div class="row">
+                <div class="span12 header">
+                    <a href="index.html"><img src="img/logo.png" alt="logo" title="logo" class="img-rounded logo"></a>
+                    <a href="index.html" title="На главную" id="logotype">Inter_Store</a>
+                    <a href="html/admin.html" id="admin">Administrator</a>
+                </div>
+            </div>
+	    </header>
+
+        <div class="siteBar">
+            <div class="search">
+                <center class="admin_page">
+                    <form>
+                        <h1>Search</h1>
+                        <input type="search">
+                        <input type="submit" value="Search">
+                    </form>
+                </center>
+            </div>
+            <div class="filters">
+                <center class="admin_page">
+                    <h1>Filters</h1><hr>
+                    <h3>Sort by price: </h3>
+                    <button style="padding: 10px 20px;" ng-click="ctrl.sortPriceUp()"><i class="glyphicon glyphicon-sort-by-attributes"></i></button>
+                    <button style="padding: 10px 20px;" ng-click="ctrl.sortPriceDown()"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button><hr>
+                </center>
+            </div>
+        </div>
+
+        <div class="anons">
+            <center>
+                <div class="article" ng-repeat="product in ctrl.products">
+                    <h3>{{product.name}}</h3>
+                    <img class="img-rounded" src="{{product.img}}">
+                    <h4>Price: {{product.price}}$</h4>
+                    <h4>Description: {{product.description}}</h4>
+                    <h4>Date: {{product.date}}</h4>
+
+                    <button ng-click="ctrl.removeProduct(product.id)">Remove</button>
+                    <button ng-click="ctrl.updateProduct(product.id)">Update</button><br>
+                    <button id="buy" ng-click="ctrl.buyProduct(product.id)">Buy</button>
+                </div>
+            </center>
+        </div>
+
+        <div class="adminZona">
+            <div class="addZona">
+                <center class="admin_page">
+                    <form ng-submit="ctrl.submit()">
+                        <h1>Add and update</h1><br><br>
+                        <label for="">Name: </label>
+                        <input type="text" ng-model="ctrl.editor.name" required> <br>
+
+                        <label for="">Img: </label>
+                        <input type="text" ng-model="ctrl.editor.img" required> <br>
+
+                        <label for="">Price: </label>
+                        <input type="number" ng-model="ctrl.editor.price" required> <br>
+
+                        <label for="">Description: </label>
+                        <textarea ng-model="ctrl.editor.description"></textarea><br>
+
+                        <label for="">Date: </label>
+                        <input type="text" ng-model="ctrl.editor.date" required> <br>
+
+                        <button ng-click="ctrl.resetForm()">Clear</button>
+                        <input class="submit-btn" type="submit" value="{{ctrl.editorAction}}">
+                    </form>
+                </center>
+            </div>
+            <div class="basket">
+                <center class="admin_page">
+                    <h1>Basket</h1><hr>
+                    <div class="prodInBasket" ng-repeat="productInBasket in ctrl.productsInBasket">
+                        <img style="float: left;" src="{{productInBasket.img}}" alt="procto">
+                        <h3>Name: {{productInBasket.name}}</h3>
+                        <h3>Price: {{productInBasket.price}}$</h3>
+                        <button>Buy</button>
+                        <button ng-click="ctrl.removeProductInBasket(productInBasket.id)">Remove</button><hr>
+                    </div>
+                </center>
+            </div>
+        </div>
+
+        </div>
+        <footer>
+            <div class="row">
+                <div class="span12 footer">
+                    <span class="left license">Магазин полностью сертифицирован &copy; в 2017</span>
+                    <span class="right vk">Мы в вк <img src="img/vk.png" alt="Группа в вк" title="Группа в вк"></span>
+                </div>
+            </div>
+	    </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
