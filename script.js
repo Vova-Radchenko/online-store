@@ -22,12 +22,12 @@ function ProductInBasket (id, name, img, price, description, date) {
 
 function ProductsController () {
     this.products = [
-        new Product(1, "Macbook 12", "img/macbook12.jpg", 1300, "good", "2016"),
-        new Product(2, "Macbook pro 13", "img/macbookpro.jpg", 3000, "good", "2016"),
-        new Product(3, "Macbook air", "img/macbookair.jpg", 999, "good", "2014"),
-        new Product(4, "Macbook pro 15", "img/macbookpro152015.jpg", 2500, "good", "2015"),
-        new Product(5, "Macbook pro 13", "img/macbookpro132015.jpg", 2000, "good", "2015"),
-        new Product(6, "Macbook pro 15", "img/macbookpro152016.jpg", 3500, "good", "2016")
+        new Product(1, "Macbook 12", "img/macbook12.jpg", 1300, "good", 2016),
+        new Product(2, "Macbook pro 13", "img/macbookpro.jpg", 3000, "good", 2016),
+        new Product(3, "Macbook air", "img/macbookair.jpg", 999, "good", 2014),
+        new Product(4, "Macbook pro 15", "img/macbookpro152015.jpg", 2500, "good", 2015),
+        new Product(5, "Macbook pro 13", "img/macbookpro132015.jpg", 2000, "good", 2015),
+        new Product(6, "Macbook pro 15", "img/macbookpro152016.jpg", 3500, "good", 2016)
     ];
 
     this.productsInBasket = [];
@@ -41,7 +41,7 @@ function ProductsController () {
         img: "",
         price: null,
         description: "",
-        date: "",
+        date: null,
         id: null
     }  
 
@@ -107,7 +107,7 @@ function ProductsController () {
             img: "",
             price: null,
             description: "",
-            date: "",
+            date: null,
             id: null
         }  
         this.editorAction = "Create";

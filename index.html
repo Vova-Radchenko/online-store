@@ -41,8 +41,11 @@
                 <center class="admin_page">
                     <h1>Filters</h1><hr>
                     <h3>Sort by price: </h3>
-                    <button style="padding: 10px 20px;" ng-click="ctrl.sortPriceUp()"><i class="glyphicon glyphicon-sort-by-attributes"></i></button>
-                    <button style="padding: 10px 20px;" ng-click="ctrl.sortPriceDown()"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button><hr>
+                    <button class="filter-btn" ng-click="ctrl.sortPriceUp()"><i class="glyphicon glyphicon-sort-by-attributes"></i></button>
+                    <button class="filter-btn" ng-click="ctrl.sortPriceDown()"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button><hr>
+                    <h3>Sort by date</h3>
+                    <button class="filter-btn"><i class="glyphicon glyphicon-sort-by-attributes"></i></button>
+                    <button class="filter-btn"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button><hr>
                 </center>
             </div>
         </div>
@@ -81,7 +84,7 @@
                         <textarea ng-model="ctrl.editor.description"></textarea><br>
 
                         <label for="">Date: </label>
-                        <input type="text" ng-model="ctrl.editor.date" required> <br>
+                        <input type="number" ng-model="ctrl.editor.date" required> <br>
 
                         <button ng-click="ctrl.resetForm()">Clear</button>
                         <input class="submit-btn" type="submit" value="{{ctrl.editorAction}}">

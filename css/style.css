@@ -39,6 +39,9 @@ html {
   font-family: CURSIVE, sans-serif;
   font-size: 1.5em;
 }
+.admin_page .filter-btn {
+  padding: 10px 20px;
+}
 .admin_page h1 {
   margin-top: 10px;
   font-size: 1.9em;
