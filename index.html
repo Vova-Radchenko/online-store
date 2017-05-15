@@ -44,8 +44,8 @@
                     <button class="filter-btn" ng-click="ctrl.sortPriceUp()"><i class="glyphicon glyphicon-sort-by-attributes"></i></button>
                     <button class="filter-btn" ng-click="ctrl.sortPriceDown()"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button><hr>
                     <h3>Sort by date</h3>
-                    <button class="filter-btn"><i class="glyphicon glyphicon-sort-by-attributes"></i></button>
-                    <button class="filter-btn"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button><hr>
+                    <button class="filter-btn" ng-click="ctrl.sortDateUp()"><i class="glyphicon glyphicon-sort-by-attributes"></i></button>
+                    <button class="filter-btn" ng-click="ctrl.sortDateDown()"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button><hr>
                 </center>
             </div>
         </div>
@@ -57,7 +57,7 @@
                     <img class="img-rounded" src="{{product.img}}">
                     <h4>Price: {{product.price}}$</h4>
                     <h4>Description: {{product.description}}</h4>
-                    <h4>Date: {{product.date}}</h4>
+                    <h4>Date: {{product.date}} year</h4>
 
                     <button ng-click="ctrl.removeProduct(product.id)">Remove</button>
                     <button ng-click="ctrl.updateProduct(product.id)">Update</button><br>

@@ -45,24 +45,49 @@ function ProductsController () {
         id: null
     }  
 
+    // this.comparePrice = function (productA, productB) {
+    //     debugger;
+    //     return productA.price - productB.price;
+    // }
+
+    function comparePriceUp (productA, productB) {
+        return productA.price - productB.price;
+    }
+
+    function comparePriceDown (productA, productB) {
+        return productB.price - productA.price;
+    }
+
     this.sortPriceUp = function () {
-        debugger;
-        this.comparePrice = function (productA, productB) {
-            debugger;
-            return productA.price - productB.price;
-        };
-        debugger;
-        this.products.sort(comparePrice);
-        debugger;
+        // this.comparePrice = function (productA, productB) {
+        //     return productA.price - productB.price;
+        // };
+        this.products.sort(comparePriceUp);
     }
 
     this.sortPriceDown = function () {
-        debugger;
-        function comparePrice(productA, productB) {
-            return productB.price - productA.price;
-        }
+        // debugger;
+        // function comparePrice(productA, productB) {
+        //     return productB.price - productA.price;
+        // }
 
-        products.sort(comparePrice);
+        this.products.sort(comparePriceDown);
+    }
+
+    function compareDateUp (productA, productB) {
+        return productA.date - productB.date;
+    }
+
+    function compareDateDown (productA, productB) {
+        return productB.price - productA.price;
+    }
+
+    this.sortDateUp = function () {
+        this.products.sort(compareDateUp);
+    }
+
+    this.sortDateDown = function () {
+        this.products.sort(compareDateDown);
     }
 
     this.buyProduct = function (id) {
